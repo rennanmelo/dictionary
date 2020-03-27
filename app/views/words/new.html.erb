@@ -1,0 +1,18 @@
+<h2>Saving a word</h2>
+
+<% @new_word.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+<% end %>
+
+<%= form_for(@new_word) do |field| %>
+  <%= field.label :name, "Give a new word" %>
+  <%= field.text_field :name, :placeholder => "write the word" %>
+
+  <%= field.label :meaning, "Give the meaning" %>
+  <%= field.text_field :meaning, :placeholder => "write the meaning" %>
+  
+  <%= field.label :example, "Give an example" %>
+  <%= field.text_field :example, :placeholder => "write an example" %>
+
+  <%= field.submit "Save" %>
+<% end %>
