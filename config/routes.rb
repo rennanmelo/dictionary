@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/words' => 'words#create'
   get '/words/:id' => 'words#show', as: 'word'
   get '/words/:id/edit' => 'words#edit', as: 'word_edit_yeah'
+  patch '/words/:id' => 'words#update'
 end
