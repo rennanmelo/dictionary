@@ -15,9 +15,10 @@
     <% if @words.count > 0 %>
       <% @words.each do |word| %>
         <tr>
-          <td>Name<%= word.name %></td>
-          <td>Meaning<%= word.meaning %></td>
-          <td>Example<%= word.example %></td>
+          <td><%= word.name %></td>
+          <td><%= word.meaning %></td>
+          <td><%= word.example %></td>
+          <td><%= link_to 'See more', word_path(word) %></td>
         </tr>
       <% end %>
     <% end %>
