@@ -19,6 +19,7 @@
           <td><%= word.meaning %></td>
           <td><%= word.example %></td>
           <td><%= link_to 'See more', word_path(word) %></td>
+          <td><%= link_to 'Edit', word_edit_yeah_path(word) %></td>
         </tr>
       <% end %>
     <% end %>

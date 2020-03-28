@@ -4,12 +4,12 @@ class WordsController < ApplicationController
   end
 
   def new
-    @new_word = Word.new
+    @word = Word.new
   end
 
   def create
-    @new_word = Word.new(word_params)
-    if @new_word.save
+    @word = Word.new(word_params)
+    if @word.save
       redirect_to root_path
     else
       render 'new'
@@ -17,6 +17,10 @@ class WordsController < ApplicationController
   end
 
   def show
+    @word = Word.find(params[:id])
+  end
+
+  def edit
     @word = Word.find(params[:id])
   end
 
