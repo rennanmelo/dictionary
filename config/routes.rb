@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/words/new' => 'words#new'
   post '/words' => 'words#create'
   get '/words/:id' => 'words#show', as: 'word'
-  get '/words/:id/edit' => 'words#edit', as: 'word_edit_yeah'
+  get '/words/:id/edit' => 'words#edit', as: 'word_edit'
   patch '/words/:id' => 'words#update'
+  delete '/words/:id' => 'words#destroy'
 end
