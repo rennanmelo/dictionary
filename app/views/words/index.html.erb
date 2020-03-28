@@ -20,7 +20,7 @@
           <td><%= word.example %></td>
           <td><%= link_to 'See more', word_path(word) %></td>
           <td><%= link_to 'Edit', word_edit_path(word) %></td>
-          <td><%= link_to 'Delete', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', word_path(word), data: { method: :delete, confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     <% end %>

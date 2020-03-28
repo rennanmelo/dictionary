@@ -10,9 +10,10 @@ class WordsController < ApplicationController
   def create
     @word = Word.new(word_params)
     if @word.save
-      redirect_to root_path
+      redirect_to @word
     else
-      render 'new'
+      flash[:errors] = @word.errors.full_messages
+      redirect_to words_new_path
     end
   end
 
@@ -27,16 +28,17 @@ class WordsController < ApplicationController
   def update
     @word = Word.find(params[:id])
     if @word.update(word_params)
-      redirect_to root_path
+      redirect_to words_path
     else
-      render 'new'
+      flash[:errors] = @word.errors.full_messages
+      redirect_to word_edit_path
     end
   end
 
   def destroy
     @word = Word.find(params[:id])
     @word.destroy
-    redirect_to root_path
+    redirect_to words_path
   end
 
   private
