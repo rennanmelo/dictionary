@@ -1,23 +1,25 @@
 <h2>My dictionary has <%= @words.count %> words saved.</h2>
 
-  <table>
-    <caption>My English dictionary</caption>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Meaning</th>
-        <th>Example</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @words.count > 0 %>
-        <% @words.each do |word| %>
-          <tr>
-            <td>Name<%= word.name %></td>
-            <td>Meaning<%= word.meaning %></td>
-            <td>Example<%= word.example %></td>
-          </tr>
-        <% end %>
+<%= link_to 'Save a new word', words_new_path %>
+
+<table>
+  <caption>My English dictionary</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Meaning</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @words.count > 0 %>
+      <% @words.each do |word| %>
+        <tr>
+          <td>Name<%= word.name %></td>
+          <td>Meaning<%= word.meaning %></td>
+          <td>Example<%= word.example %></td>
+        </tr>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
