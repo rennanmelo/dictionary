@@ -1,6 +1,10 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all
+    if params[:search]
+      @words = Word.where('name LIKE ?', "%#{params[:search]}%")
+    else
+      @words = Word.all
+    end
   end
 
   def new
@@ -44,6 +48,6 @@ class WordsController < ApplicationController
   private
   
   def word_params
-    params.require(:word).permit(:name, :meaning, :example)
+    params.require(:word).permit(:name, :meaning, :example, :search)
   end
 end

@@ -1,8 +1,18 @@
 <% content_for(:title, "Dictionary") %>
 
-<h2>My dictionary has <%= pluralize(@words.length, "word") %> saved.</h2>
+<h2><%= pluralize(@words.length, "word") %> founded.</h2>
 
 <%= link_to 'Save a new word', words_new_path %>
+
+<hr>
+
+<%= form_tag words_path, :method => "get" do %>
+  <%= label_tag(:search, "Search a word") %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<hr>
 
 <table>
   <caption>My English dictionary</caption>
