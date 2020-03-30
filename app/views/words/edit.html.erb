@@ -1,9 +1,13 @@
 <% content_for(:title, "Editing #{@word.name}") %>
 
-<h2>Edit data from word "<%= @word.name %>"</h2>
+<section class="section">
+  <div class="container">
+    <h2 class="title">Editing data from word "<%= @word.name %>"</h2>
 
-<%= render "form" %>
+    <%= render "form" %>
 
-<hr>
+    <hr>
 
-<%= link_to 'Back to Home', root_path %>
+    <%= link_to 'Back to Home', root_path %>
+  </div>
+</section>

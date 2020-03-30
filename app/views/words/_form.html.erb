@@ -1,18 +1,33 @@
 <% if flash[:errors] %>
-    <% flash[:errors].each do |error_message| %>
-      <p><%= error_message %></p>
+    <% flash[:errors].each_with_index do |error_message, index| %>
+      <div class="notification is-danger notification__error">
+        <button class="delete" id="delete-<%= index %>"></button>
+        <%= error_message %>
+      </div>
     <% end %>
 <% end %>
 
 <%= form_for(@word) do |field| %>
-  <%= field.label :name, "Give a new word" %>
-  <%= field.text_field :name, :placeholder => "write the word" %>
+  <div class="field">
+    <%= field.label :name, "Give a new word", class: "label" %>
+    <div class="control">
+      <%= field.text_field :name, :placeholder => "write the word", class: "input" %>
+    </div>
+  </div>
 
-  <%= field.label :meaning, "Give the meaning" %>
-  <%= field.text_field :meaning, :placeholder => "write the meaning" %>
-  
-  <%= field.label :example, "Give an example" %>
-  <%= field.text_field :example, :placeholder => "write an example" %>
+  <div class="field">
+    <%= field.label :meaning, "Give the meaning", class: "label" %>
+    <div class="control">
+      <%= field.text_area :meaning, :placeholder => "write the meaning", class: "textarea" %>
+    </div>
+  </div>
 
-  <%= field.submit "Save" %>
+  <div class="field">
+    <%= field.label :example, "Give an example", class: "label" %>
+    <div class="control">
+      <%= field.text_field :example, :placeholder => "write an example", class: "input" %>
+    </div>
+  </div>
+
+  <%= field.submit "Save", class: "button is-success button--create" %>
 <% end %>
