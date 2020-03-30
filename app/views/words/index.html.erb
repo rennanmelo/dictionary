@@ -1,39 +1,61 @@
 <% content_for(:title, "Look into - dictionary") %>
 
-<h2><%= pluralize(@words.length, "word") %> found.</h2>
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Look into - Dictionary
+      </h1>
+      <h2 class="subtitle">
+        <%= pluralize(@words.length, "word") %> found.
+      </h2>
+    </div>
+  </div>
+</section>
 
-<%= link_to 'Save a new word', words_new_path %>
-
-<hr>
-
-<%= form_tag words_path, :method => "get" do %>
-  <%= label_tag(:search, "Search a word") %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
-
-<hr>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Meaning</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @words.count > 0 %>
-      <% @words.each do |word| %>
-        <tr>
-          <td><%= word.name %></td>
-          <td><%= word.meaning %></td>
-          <td><%= word.example %></td>
-          <td><%= link_to 'See more', word_path(word) %></td>
-          <td><%= link_to 'Edit', word_edit_path(word) %></td>
-          <td><%= link_to 'Delete', word_path(word), data: { method: :delete, confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+<section class="section">
+  <div class="container">
+    <%= link_to 'Save a new word', words_new_path, class: "button is-success button--create" %>
+    
+    <%= form_tag words_path, :method => "get", class: "form" do %>
+      <div class="container">
+      <div class="field has-addons">
+        <div class="control">
+          <%= text_field_tag :search, params[:search], class: "input", placeholder: "Find a word" %>
+        </div>
+        <div class="control">
+            <%= submit_tag 'Search', name: nil, class: "button is-info" %>
+        </div>
+      </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+    <% if @words.count > 0 %>
+      <ul class="card__list columns is-multiline">
+        <% @words.each do |word| %>
+          <li class="column is-full-mobile is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-third-fullhd">
+            <div class="card">
+              <header class="card-header">
+                <h3 class="card-header-title">
+                  <%= word.name %>
+                </h3>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p>
+                    <%= word.meaning %>
+                  </p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <%= link_to 'Details', word_path(word), class: "card-footer-item" %>
+                <%= link_to 'Edit', word_edit_path(word), class: "card-footer-item" %>
+                <%= link_to 'Delete', word_path(word), data: { method: :delete, confirm: 'Are you sure?' }, class: "card-footer-item" %>
+              </footer>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</section>

@@ -15,3 +15,17 @@
  */
 
  @import "bulma";
+
+ .form {
+   margin-bottom: 1.5rem;
+ }
+
+ .button {
+  &--create {
+    margin-bottom: 1.5rem;
+
+    @media screen and (max-width: 425px) {
+      width: 100%;
+    }
+  }
+ }
