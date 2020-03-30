@@ -36,7 +36,7 @@
           <li class="column is-full-mobile is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-third-fullhd">
             <div class="card">
               <header class="card-header">
-                <h3 class="card-header-title">
+                <h3 class="card-header-title card__title">
                   <%= word.name %>
                 </h3>
               </header>
@@ -47,10 +47,10 @@
                   </p>
                 </div>
               </div>
-              <footer class="card-footer">
-                <%= link_to 'Details', word_path(word), class: "card-footer-item" %>
-                <%= link_to 'Edit', word_edit_path(word), class: "card-footer-item" %>
-                <%= link_to 'Delete', word_path(word), data: { method: :delete, confirm: 'Are you sure?' }, class: "card-footer-item" %>
+              <footer class="card-footer has-addons buttons">
+                <%= link_to 'Details', word_path(word), class: "card-footer-item button card__button is-inverted is-black" %>
+                <%= link_to 'Edit', word_edit_path(word), class: "card-footer-item button card__button is-inverted is-info" %>
+                <%= link_to 'Delete', word_path(word), data: { method: :delete, confirm: 'Are you sure?' }, class: "card-footer-item button card__button is-inverted is-danger" %>
               </footer>
             </div>
           </li>

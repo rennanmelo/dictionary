@@ -14,13 +14,13 @@
  *= require_self
  */
 
- @import "bulma";
+@import "bulma";
 
- .form {
-   margin-bottom: 1.5rem;
- }
+.form {
+  margin-bottom: 1.5rem;
+}
 
- .button {
+.button {
   &--create {
     margin-bottom: 1.5rem;
 
@@ -28,4 +28,22 @@
       width: 100%;
     }
   }
- }
+}
+    
+.card {
+  border-radius: 4px;
+
+  .card__button {
+    margin-bottom: 0;
+    border-radius: 0;
+    margin: 0 !important;
+
+    &:first-child {
+      border-radius: 0 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 0 4px 0;
+    }
+  }
+}
