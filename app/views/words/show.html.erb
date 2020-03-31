@@ -1,15 +1,28 @@
 <% content_for(:title, "#{@word.name}") %>
 
-<h2><%= @word.name %></h2>
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= @word.name %>
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="content">
+      <h2 class="">Meaning</h2>
+      <p><%= @word.meaning %></p>
+      
+      <hr>
+      
+      <h2>Example:</h2>
+      <p><%= @word.example %></p>
 
-<h3>Complete definition:</h3>
+      <hr>
 
-<p><%= @word.meaning %></p>
-
-<h3>Example:</h3>
-
-<p><%= @word.example %></p>
-
-<hr>
-
-<%= link_to 'Back to Home', root_path %>
+      <%= link_to 'Back to Home', root_path %>
+    </div>
+  </div>
+</section>
