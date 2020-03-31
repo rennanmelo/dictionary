@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
   def index
     if params[:search] && params[:search] != ''
-      @words = Word.where('name LIKE ?', "%#{params[:search]}%").order(created_at: :desc)
+      @words = Word.where('lower(name) LIKE ?', "%#{params[:search].downcase}%").order(created_at: :desc)
     else
       @words = Word.all.limit(12).order(created_at: :desc)
     end
