@@ -3,7 +3,7 @@
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title" id="word_title">
         <%= @word.name %>
       </h1>
     </div>
@@ -11,18 +11,35 @@
 </section>
 <section class="section">
   <div class="container">
-    <div class="content">
-      <h2 class="">Meaning</h2>
-      <p><%= @word.meaning %></p>
-      
-      <hr>
-      
-      <h2>Example:</h2>
-      <p><%= @word.example %></p>
+    <div class="columns">
+      <div class="column is-full-mobile is-7-tablet is-8-desktop">
+        <div class="content">
+          <h2 class="">Meaning</h2>
+          <p><%= @word.meaning %></p>
+          
+          <h2>Example:</h2>
+          <p><%= @word.example %></p>
+        </div>
+      </div>
+      <div class="column is-full-mobile is-5-tablet is-4-desktop level-right">  
+        <form class="form slider__form">
+          <label for="rate" class="slider__label">Rate</label><span class="slider__rate"> - <span class="rate-value">1</span>x</span>
+          
+          <input class="slider is-fullwidth is-medium" type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
+          
+          <div class="select slider__select">
+            <select class="is-info"></select>
+          </div>
 
-      <hr>
-
-      <%= link_to 'Back to Home', root_path %>
+          <div class="controls">
+            <button class="slider__button button is-info" id="play" type="submit">Play</button>
+          </div>
+        </form>
+      </div>  
     </div>
+    
+    <hr>
+      
+    <%= link_to 'Back to Home', root_path %>
   </div>
 </section>

@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 // Custom
+require("custom/textToSpeech")
 require("custom/script")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
