@@ -14,15 +14,18 @@
     <div class="columns">
       <div class="column is-full-mobile is-7-tablet is-8-desktop">
         <div class="content">
-          <h2 class="">Meaning</h2>
+          <h2>Meaning</h2>
           <p><%= @word.meaning %></p>
           
-          <h2>Example:</h2>
+          <h2>Example</h2>
           <p><%= @word.example %></p>
         </div>
       </div>
-      <div class="column is-full-mobile is-5-tablet is-4-desktop level-right">  
+      <div class="column is-full-mobile is-5-tablet is-4-desktop level-right">
         <form class="form slider__form">
+          <div class="content">
+            <h2>Audio</h2>
+          </div> 
           <label for="rate" class="slider__label">Rate</label><span class="slider__rate"> - <span class="rate-value">1</span>x</span>
           
           <input class="slider is-fullwidth is-medium" type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
